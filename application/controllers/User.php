@@ -30,8 +30,7 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('fname', 'Fname', 'required');
 		$this->form_validation->set_rules('lname', 'Lname', 'required');
 		$this->form_validation->set_rules('gender', 'Gender', 'required');
-		$this->form_validation->set_rules('institution', 'Institution', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() === FALSE) {
@@ -41,7 +40,7 @@ class User extends CI_Controller
 
 		} else {
 			$this->User_model->set_user();
-			$this->load->view('user/create');
+			$this->load->view('user/success');
 		}
 	}
 }
