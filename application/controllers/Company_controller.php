@@ -10,6 +10,10 @@ class Company_controller extends CI_Controller
 {
     public function index()
     {
-        $this->load->view("company/company_view");
+        $data['title'] = "Company";
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('company/company_view');
+        $this->load->view('templates/footer', $data);
     }
 }

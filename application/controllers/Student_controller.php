@@ -10,6 +10,10 @@ class Student_controller extends CI_Controller
 {
     public function index()
     {
-        $this->load->view("student/student_controller");
+        $data['title'] = "Student";
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('student/student_view');
+        $this->load->view('templates/footer', $data);
     }
 }
