@@ -54,5 +54,7 @@ $route['user/success'] = 'success';
 $route['register'] = 'user/create';
 $route['user/create'] = 'register';
 $route['default_controller'] = 'welcome';
+$route['company_controller'] = "conpany";
+$route['student_controller'] = "student";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
