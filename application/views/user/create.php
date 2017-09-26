@@ -18,6 +18,9 @@
 <label for="password">Wachtwoord</label>
 <input type="password" name="password"/><br />
 
+<label for="confirm_password">herhaal wachtwoord</label>
+<input type="password" name="confirm_password" /><br />
+
 <input type="submit" name="submit" value="Register" />
 
 </form>
