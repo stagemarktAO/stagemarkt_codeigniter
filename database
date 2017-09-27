@@ -1,0 +1,8 @@
+CREATE TABLE `user` (
+	`id` INT(12) NOT NULL AUTO_INCREMENT,
+	`fname` VARCHAR(30) NOT NULL,
+	`lname` VARCHAR(30) NOT NULL,
+	`gender` INT(11) NOT NULL,
+	`email` VARCHAR(60) NOT NULL,
+	`password` VARCHAR(40) NOT NULL,
+	PRIMARY KEY (`id`)
