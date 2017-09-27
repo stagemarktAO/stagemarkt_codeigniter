@@ -1,4 +1,4 @@
-<div class="col-md-offset-5 col-md-2">
+<div class="col-md-offset-5 col-md-2    ">
 	<h1><?php echo $title; ?></h1>
 <?php echo validation_errors(); ?>
 
