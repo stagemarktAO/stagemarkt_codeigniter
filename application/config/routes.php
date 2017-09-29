@@ -56,5 +56,6 @@ $route['user/create'] = 'register';
 $route['default_controller'] = 'welcome';
 $route['student'] = 'Student_controller';
 $route['company'] = "Company_controller";
+$route['company/create'] = "company_controller/create";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
