@@ -28,7 +28,7 @@ class Company_controller extends CI_Controller
         // redirects user if not logged in;
         if($this->is_logged_in() == FALSE) {
             // login url is unknown;
-            header("location:http://stagemarkt.local/user");
+            header("location:http://stagemarkt.local/register");
         }
         $this->load->helper('form');
         $data['title'] = "Create company";

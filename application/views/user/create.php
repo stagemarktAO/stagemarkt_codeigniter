@@ -1,16 +1,21 @@
-<div class="col-md-offset-5 col-md-2    ">
-	<h1><?php echo $title; ?></h1>
-<?php echo validation_errors(); ?>
+<body class="hold-transition register-page">
+<div class="register-box">
+	<div class="register-logo">
+		<a href="#">
+		<b>STAGE</b>MARKT
+		</a>
+	</div>
 
+	<div class="register-box-body">
+		<p class="login-box-msg">Maak een nieuw account aan</p>
+		<?php echo validation_errors(); ?>
 	<?php echo form_open('User/create'); ?>
 
-		<div class="form-group">
-			<label for="fname">Voornaam</label>
-			<input type="text" class="form-control" name="fname" value="<?php echo set_value('fname'); ?>" />
+		<div class="form-group has-feedback">
+			<input type="text" class="form-control" name="fname" value="<?php echo set_value('fname'); ?>" placeholder="Voornaam" /><span class="glyphicon glyphicon-user form-control-feedback"></span>
 		</div>
-		<div class="form-group">
-			<label for="lname">Achternaam</label>
-			<input type="text" class="form-control" name="lname" value="<?php echo set_value('lname'); ?>" />
+		<div class="form-group has-feedback">
+			<input type="text" class="form-control" name="lname" value="<?php echo set_value('lname'); ?>" placeholder="Achternaam"/><span class="glyphicon glyphicon-user form-control-feedback"></span>
 		</div>
 
 
@@ -26,22 +31,21 @@
 			</label>
 		</div>
 
-		<div class="form-group">
-			<label for="email">Email adres</label>
-			<input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" />
+		<div class="form-group has-feedback">
+			<input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email adres"/><span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		</div>
 
-		<div class="form-group">
-			<label for="password">Wachtwoord</label>
-			<input class="form-control" type="password" name="password"/>
+		<div class="form-group has-feedback">
+			<input class="form-control" type="password" name="password" placeholder="Wachtwoord"/><span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		</div>
 
-		<div class="form-group">
-			<label for="confirm_password">herhaal wachtwoord</label>
-			<input class="form-control" type="password" name="confirm_password" />
+		<div class="form-group has-feedback">
+			<input class="form-control" type="password" name="confirm_password" placeholder="Herhaal wachtwoord" /><span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 		</div>
 
-		<button class="btn btn-default" type="submit" name="submit" value="Register">Verzend</button>
+		<button class="btn btn-primary btn-block btn-flat" type="submit" name="submit" value="Register">Verzend</button>
 
 	</form>
+	</div>
 </div>
+</body>

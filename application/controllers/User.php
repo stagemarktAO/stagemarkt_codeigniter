@@ -25,7 +25,7 @@ class User extends CI_Controller
 		$this->load->model('User_model');
 		$this->load->library('form_validation');
 
-		$data['title'] = 'Register';
+		$data['title'] = 'Registreer';
 
 		$this->form_validation->set_rules('fname', 'Fname', 'required');
 		$this->form_validation->set_rules('lname', 'Lname', 'required');
