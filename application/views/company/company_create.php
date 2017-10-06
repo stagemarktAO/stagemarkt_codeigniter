@@ -18,7 +18,7 @@ echo form_open('Company_controller/create'); ?>
     </div>
     <div class="form-group">
         <label for="phone">Phonenumber:</label>
-        <input type="number" class="form-control" name="phonenumber" data-toggle="tooltip" title="please enter a valid phone number (without special characters)">
+        <input type="number" class="form-control" name="phonenumber" data-toggle="tooltip" data-placement="bottom" title="please enter a valid phone number (without special characters)">
     </div>
     <div class="form-group">
         <label for="site">Website:</label>
