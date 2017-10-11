@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['user/success'] = 'success';
 $route['internships/create'] = 'internships/create';
 $route['register'] = 'user/create';
+$route['internships/create'] = 'internships/create';
 $route['default_controller'] = 'welcome';
 $route['student'] = 'Student_controller';
 $route['company'] = "Company_controller";
