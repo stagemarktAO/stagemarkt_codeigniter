@@ -54,6 +54,7 @@ $route['user/success'] = 'success';
 $route['internships/create'] = 'internships/create';
 $route['register'] = 'user/create';
 $route['login'] = 'user/login';
+$route['loggedin'] = 'loggedin';
 $route['default_controller'] = 'welcome';
 $route['student'] = 'Student_controller';
 $route['company'] = "Company_controller";

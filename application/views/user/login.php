@@ -1,6 +1,11 @@
-
-<div style="padding-top: 50px">
-    <div class="col-md-offset-4 col-md-3">
+<body class="hold-transition login-page"></body>
+<div class="login-box">
+	<div class="login-logo">
+		<a href="#">
+			<b>STAGE</b>MARKT
+		</a>
+	</div>
+    <div class="login-box-body">
         <?php echo validation_errors(); ?>
         <?php if (!empty($error)) { echo $error; };?>
         <p class="login-box-msg">Sign in to start your session</p>
