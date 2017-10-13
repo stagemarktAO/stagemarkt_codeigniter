@@ -21,7 +21,7 @@ class internships extends CI_Controller
 
     public function create(){
         $this->load->helper('form');
-        $this->load->model('internships_model');
+        $this->load->model('Internships_model');
         $this->load->library('form_validation');
 
         $data['title'] = 'maak stageplek aan';
@@ -41,7 +41,7 @@ class internships extends CI_Controller
         } else {
             $this->Internships_model->set_internship();
             $this->load->view('templates/header');
-            $this->load->view('internships/index');
+            $this->load->view('user/success');
             $this->load->view('templates/footer');
         }
     }

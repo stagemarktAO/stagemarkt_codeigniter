@@ -3,6 +3,7 @@
 <script src="<?=base_url()?>assets/js/main.js"></script>
 <script src="<?=base_url()?>assets/js/bootstrap-datepicker.min.js"></script>
 <script>$('#sandbox-container .input-daterange').datepicker({
+		format: 'yyyy/mm/dd'
 	});
 </script>
 	</body>
