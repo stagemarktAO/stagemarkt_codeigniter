@@ -3,6 +3,12 @@
 class internships extends CI_Controller
 {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("Internships_model");
+	}
+
     public function index()
     {
         $this->load->helper(array('form', 'url'));
@@ -20,6 +26,12 @@ class internships extends CI_Controller
     }
 
     public function create(){
+
+	    if($this->is_logged_in() == FALSE) {
+		    // login url is unknown;
+		    header("location:http://stagemarkt.local/login");
+	    }
+
         $this->load->helper('form');
         $this->load->model('Internships_model');
         $this->load->library('form_validation');
@@ -45,4 +57,14 @@ class internships extends CI_Controller
             $this->load->view('templates/footer');
         }
     }
+
+	public function is_logged_in()
+	{
+		return $this->Internships_model->is_logged_in();
+	}
+
+	public function login()
+	{
+		$this->Internships_model->login();
+	}
 }
