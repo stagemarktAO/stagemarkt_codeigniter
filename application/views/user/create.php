@@ -31,6 +31,14 @@
 			</label>
 		</div>
 
+        <div class="form-group has-feedback">
+            <label for="typeaccount">Type account</label>
+            <select class="form-control">
+                <option id="optionsSelects2" name="typeaccount" value="0" <?php echo set_select('typeaccount', '0', FALSE); ?>>Student</option>
+                <option id="optionsSelects3" name="typeaccount" value="1" <?php echo set_select('typeaccount', '1', TRUE); ?>>Contactpersoon</option>
+            </select>
+        </div>
+
 		<div class="form-group has-feedback">
 			<input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email adres"/><span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		</div>
