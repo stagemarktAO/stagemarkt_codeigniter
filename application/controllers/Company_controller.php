@@ -26,10 +26,6 @@ class Company_controller extends CI_Controller
     public function create()
     {
         // redirects user if not logged in;
-        if($this->is_logged_in() == FALSE) {
-            // login url is unknown;
-            header("location:http://stagemarkt.local/register");
-        }
         $this->load->helper('form');
         $data['title'] = "Create company";
         $this->load->view('templates/header', $data);
@@ -45,10 +41,10 @@ class Company_controller extends CI_Controller
                 $id = $this->company_model->create_new_company();
                 $this->load_company($id);
             } else {
-                $this->load->view('company/company_create');
+                $this->load->view('company/company_create', $data);
             }
         } else {
-            $this->load->view('company/company_create');
+            $this->load->view('company/company_create', $data);
         }
         $this->load->view('templates/footer', $data);
     }
@@ -59,13 +55,4 @@ class Company_controller extends CI_Controller
         $this->load->view('company/company_view', $data);
     }
 
-    public function is_logged_in()
-    {
-        return $this->company_model->is_logged_in();
-    }
-
-    public function login()
-    {
-        $this->company_model->login();
-    }
 }

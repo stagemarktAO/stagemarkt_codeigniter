@@ -1,0 +1,12 @@
+.main-header .navbar {
+    background-color: #3c8dbc;
+}
+.main-header .logo {
+    background-color: #367fa9;
+}
+.main-header .logo .logo-lg{
+    color: white;
+}
+.hidden-xs{
+    color: white;
+}

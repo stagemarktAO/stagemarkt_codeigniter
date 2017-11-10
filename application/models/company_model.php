@@ -33,20 +33,4 @@ class company_model extends CI_Model
         return $this->db->get_where('company_table', array('id' => $id))->row();
     }
 
-    public function is_logged_in()
-    {
-        $this->load->library('session');
-        if($this->session->userdata('logged_in') == TRUE){
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-
-    public function login()
-    {
-        $this->load->library('session');
-        $this->session->set_userdata('logged_in', TRUE);
-        header("location:http://stagemarkt.local/company/create");
-    }
 }
