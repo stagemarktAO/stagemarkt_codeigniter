@@ -1,3 +1,5 @@
+
+
 <html>
 	<head>
 		<title>Stagemarkt</title>
@@ -33,7 +35,7 @@
                             <!-- The user image in the navbar-->
                             <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs"><?php if (isset($_SESSION['email']) && $_SESSION['logged_in'] = TRUE) { echo $_SESSION['fname'];}else{echo 'niet ingelogd';} ?></span>
+                            <span class="hidden-xs"><?php if (isset($_SESSION['email']) && $_SESSION['logged_in'] === TRUE) { echo $_SESSION['fname'];}else{echo 'niet ingelogd';} ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
@@ -73,6 +75,9 @@
                                         ?><a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Logout</a><?php
                                         if (uri_string() == 'login' || uri_string() == 'register') {
                                             redirect('welcome');
+                                        }
+                                        else{
+
                                         }
                                     }
                                     else {
