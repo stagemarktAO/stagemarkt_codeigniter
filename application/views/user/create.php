@@ -33,9 +33,9 @@
 
         <div class="form-group has-feedback">
             <label for="typeaccount">Type account</label>
-            <select class="form-control">
-                <option id="optionsSelects2" name="typeaccount" value="0" <?php echo set_select('typeaccount', '0', FALSE); ?>>Student</option>
-                <option id="optionsSelects3" name="typeaccount" value="1" <?php echo set_select('typeaccount', '1', TRUE); ?>>Contactpersoon</option>
+            <select class="form-control" name="typeaccount">
+                <option id="optionsSelects1" value="0" <?php echo set_select('typeaccount', '0', TRUE) ?> >Student</option>
+                <option id="optionsSelects2" value="1" <?php echo set_select('typeaccount', '1', FALSE) ?>>Contactpersoon</option>
             </select>
         </div>
 
