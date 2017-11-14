@@ -45,7 +45,6 @@ class User extends CI_Controller
 
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('templates/header', $data);
 			$this->load->view('user/create');
 			$this->load->view('templates/footer');
 
@@ -86,7 +85,6 @@ class User extends CI_Controller
 
             // validation not ok, send validation errors to the view
 
-            $this->load->view('templates/header', $data);
             $this->load->view('user/login', $data);
             $this->load->view('templates/footer');
         }
@@ -116,7 +114,6 @@ class User extends CI_Controller
                 $data->error = 'Wrong email or password.';
 
                 // send error to the view
-                $this->load->view('templates/header');
                 $this->load->view('user/login', $data);
                 $this->load->view('templates/footer');
 
