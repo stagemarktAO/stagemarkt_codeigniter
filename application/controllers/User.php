@@ -65,13 +65,8 @@ class User extends CI_Controller
             foreach ($_SESSION as $key => $value) {
                 unset($_SESSION[$key]);
             }
-            $this->load->view('templates/header');
-            $this->load->view('user/login', $data);
-            $this->load->view('templates/footer');
 
-        } else {
             redirect('login');
-
         }
 
     }
