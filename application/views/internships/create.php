@@ -27,17 +27,5 @@
 		</div>
 	</div>
 
-	<div class="form-group">
-		<div class="form-group has-feedback">
-			<input type="text" class="form-control" name="skills" value="<?php echo set_value('skills'); ?>" placeholder="vaardigheden" />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<div class="form-group has-feedback">
-			<input type="text" class="form-control" name="gradation" value="<?php echo set_value('gradation'); ?>" placeholder="gradatie vaardigheden" />
-		</div>
-	</div>
-
 	<button class="btn btn-primary btn-block btn-flat" type="submit" name="submit" value="Register">Verzend</button>
 </div>

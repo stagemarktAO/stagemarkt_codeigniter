@@ -20,9 +20,7 @@ class Internships_model extends CI_Model
 			'date_start' => $this->input->post('date_start'),
 			'date_end' => $this->input->post('date_end'),
 			'location' => $this->input->post('location'),
-			'year' => $this->input->post('year'),
-			'skills' => $this->input->post('skills'),
-			'gradation' => $this->input->post('gradation'),
+			'year' => $this->input->post('year')
 		);
 
 		return $this->db->insert('internships', $data);

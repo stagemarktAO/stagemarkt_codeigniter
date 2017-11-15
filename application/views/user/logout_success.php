@@ -1,0 +1,1 @@
+<h3>You successfully logged out</h3>

@@ -45,17 +45,33 @@ class User extends CI_Controller
 
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('templates/header', $data);
 			$this->load->view('user/create');
 			$this->load->view('templates/footer');
 
 		} else {
 			$this->User_model->set_user();
-			$this->load->view('templates/header', $data);
-			$this->load->view('user/login');
-			$this->load->view('templates/footer');
+			$this->load->view('user/success');
 		}
 	}
+    public function logout() {
+
+        $data = new stdClass();
+
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+            foreach ($_SESSION as $key => $value) {
+                unset($_SESSION[$key]);
+            }
+            $this->load->view('templates/header');
+            $this->load->view('user/login', $data);
+            $this->load->view('templates/footer');
+
+        } else {
+            redirect('login');
+
+        }
+
+    }
 
     public function login(){
         // create the data object
@@ -68,13 +84,12 @@ class User extends CI_Controller
         if ($this->form_validation->run() == false) {
 
             // validation not ok, send validation errors to the view
-            $this->load->view('templates/header', $data);
+
             $this->load->view('user/login', $data);
             $this->load->view('templates/footer');
         }
 
         else {
-
             // set variables from the form
             $email = $this->input->post('email');
             $password = $this->input->post('password');
@@ -82,10 +97,11 @@ class User extends CI_Controller
             if ($this->user_model->resolve_user_login($email, $password)) {
                 $user_id = $this->user_model->get_user_id_from_email($email);
                 $user = $this->user_model->get_user($user_id);
-
+                
                 // set session user datas
                 $_SESSION['user_id'] = (int)$user->id;
                 $_SESSION['email'] = (string)$user->email;
+                $_SESSION['fname'] = (string)$user->fname;
                 $_SESSION['logged_in'] = (bool)true;
                 //echo'hello';
                 // user login ok
@@ -98,7 +114,6 @@ class User extends CI_Controller
                 $data->error = 'Wrong email or password.';
 
                 // send error to the view
-                $this->load->view('templates/header');
                 $this->load->view('user/login', $data);
                 $this->load->view('templates/footer');
 
