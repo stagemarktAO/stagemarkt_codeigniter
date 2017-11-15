@@ -97,7 +97,7 @@ $db['local'] = array(
  $db['test'] =  array(
         'dns'      => 'mysql:host=149.210.223.104;dbname=internship_db',
         'username' => 'internship',
-        'password' => '654321',
+        'password' => 'HNNM7A8K0',
         'dbdriver' => 'mysqli',
         'dbprefix' => '',
         'pconnect' => FALSE,
@@ -114,4 +114,4 @@ $db['local'] = array(
     //)
 );
 
-$active_group = 'test';
+$active_group = 'local';
