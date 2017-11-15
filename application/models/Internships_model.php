@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: roanv
- * Date: 10-10-2017
- * Time: 18:13
- */
 class Internships_model extends CI_Model
 {
 	public function __construct()
