@@ -7,6 +7,9 @@ class internships extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("Internships_model");
+        if (!isset($_SESSION['email'])) {
+            redirect(base_url());
+        }
 	}
 
     public function index()

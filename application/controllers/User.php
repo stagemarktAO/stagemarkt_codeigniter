@@ -8,6 +8,9 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->library(array('session'));
         $this->load->model('user_model');
+        if (uri_string() != 'logout' && isset($_SESSION['email'])) {
+            redirect(base_url());
+        }
 
     }
 	public function index()
@@ -50,7 +53,7 @@ class User extends CI_Controller
 
 		} else {
 			$this->User_model->set_user();
-			$this->load->view('user/success');
+			redirect('login');
 		}
 	}
     public function logout() {
@@ -105,9 +108,7 @@ class User extends CI_Controller
                 $_SESSION['logged_in'] = (bool)true;
                 //echo'hello';
                 // user login ok
-                $this->load->view('templates/header');
-                $this->load->view('user/loggedin', $data);
-                $this->load->view('templates/footer');
+                redirect('welcome');
 
             } else {
                 // login failed
