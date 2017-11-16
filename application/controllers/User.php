@@ -103,7 +103,7 @@ class User extends CI_Controller
                 $_SESSION['logged_in'] = (bool)true;
                 //echo'hello';
                 // user login ok
-                redirect('welcome');
+                redirect('');
 
             } else {
                 // login failed
