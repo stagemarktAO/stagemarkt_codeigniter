@@ -12,7 +12,7 @@ class Company_controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("company_model");
+        $this->load->model("Company_model");
         if (!isset($_SESSION['email'])) {
             redirect(base_url());
         }
