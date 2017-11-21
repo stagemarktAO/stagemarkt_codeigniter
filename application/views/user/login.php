@@ -9,7 +9,7 @@
 <body class="hold-transition login-page"></body>
 <div class="login-box">
 	<div class="login-logo">
-		<a href="#">
+		<a href="<?= base_url('') ?>">
 			<b>STAGE</b>MARKT
 		</a>
 	</div>
