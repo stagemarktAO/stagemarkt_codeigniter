@@ -100,6 +100,7 @@ class User extends CI_Controller
                 $_SESSION['user_id'] = (int)$user->id;
                 $_SESSION['email'] = (string)$user->email;
                 $_SESSION['fname'] = (string)$user->fname;
+                $_SESSION['type'] = (int)$user->type;
                 $_SESSION['logged_in'] = (bool)true;
                 //echo'hello';
                 // user login ok

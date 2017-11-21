@@ -1,5 +1,4 @@
 
-
 <html>
 	<head>
 		<title>Stagemarkt</title>
@@ -47,7 +46,12 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
-                                <!-- /.row -->
+                                <?php if ($_SESSION['type'] !== null){ ?>
+                                <p><?php if ( $_SESSION['type'] == 0){
+                                    echo 'student'; } else{
+                                    echo 'contact persoon';
+                                    } ?></p>
+                                <?php } ?>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
