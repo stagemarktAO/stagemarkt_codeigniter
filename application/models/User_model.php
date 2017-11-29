@@ -10,9 +10,7 @@ class User_model extends CI_Model {
 
 	public function set_user()
 	{
-		$this->load->helper('url');
-
-		$data = array(
+	    $data = array(
 			'fname' => $this->input->post('fname'),
 			'lname' => $this->input->post('lname'),
 			'gender' => $this->input->post('gender'),
