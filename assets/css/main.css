@@ -1,0 +1,18 @@
+.main-header .navbar {
+    background-color: #3c8dbc;
+}
+.main-header .logo {
+    background-color: #367fa9;
+}
+.main-header .logo .logo-lg{
+    color: white;
+}
+
+.skin-blue .main-header .navbar .nav>li>a{
+    color: white !important;
+}
+.skin-blue .main-header .navbar .nav>li>a:hover,
+.skin-blue .main-header .navbar .nav>li>a:focus,
+.skin-blue .main-header .navbar .nav>li>a:active{
+    background-color: #367fa9 !important;
+}
