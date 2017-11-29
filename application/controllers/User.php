@@ -37,25 +37,23 @@ class User extends CI_Controller
 
 		$data['title'] = 'Registreer';
 
-		$data['fname'] = $this->form_validation->set_rules('fname', 'Fname', 'required');
-        $data['lname'] = $this->form_validation->set_rules('lname', 'Lname', 'required');
-        $data['gender'] = $this->form_validation->set_rules('gender', 'Gender', 'required');
-        $data['type'] = $this->form_validation->set_rules('typeaccount', 'Type', 'required');
-        $data['email'] = $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
-        $data['email'] = $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-
-
+		$this->form_validation->set_rules('fname', 'Fname', 'required');
+		$this->form_validation->set_rules('lname', 'Lname', 'required');
+		$this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('typeaccount', 'Type', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('user/create');
 			$this->load->view('templates/footer');
-
 		} else {
-			$this->User_model->set_user($data);
-			$this->load->model('mail_model');
-			$this->mail_model->send->welcome->email($data['email']);
-			redirect('login');
+			$this->User_model->set_user();
+			$this->load->model('Mail_model');
+			echo $this->input->post('email');
+			$this->Mail_model->send_welcome_mail();
+			//redirect('login');
 		}
 	}
     public function logout() {

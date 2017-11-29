@@ -13,7 +13,7 @@ class Mail_model extends CI_Model
         parent::__construct();
     }
 
-    public function send_welcome_mail($data)
+    public function send_welcome_mail()
     {
         $this->load->library('PHPMailer/Phpmailer');
         $mail = New CI_PHPMailer();
@@ -34,7 +34,7 @@ class Mail_model extends CI_Model
         $mail->FromName    = 'Project stagemarkt';
         $mail->WordWrap    = 900;
 
-        $mail->addAddress($data['email']);      // Add a recipient
+        $mail->addAddress($this->input->post('email'));      // Add a recipient
 
         $mail->isHTML(true);                           // Set email format to HTML
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
