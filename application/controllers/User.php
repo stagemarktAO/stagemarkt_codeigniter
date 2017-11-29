@@ -51,9 +51,8 @@ class User extends CI_Controller
 		} else {
 			$this->User_model->set_user();
 			$this->load->model('Mail_model');
-			echo $this->input->post('email');
 			$this->Mail_model->send_welcome_mail();
-			//redirect('login');
+			redirect('login');
 		}
 	}
     public function logout() {
