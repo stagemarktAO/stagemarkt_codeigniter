@@ -20,4 +20,11 @@ class Internships_model extends CI_Model
 		return $this->db->insert('internships', $data);
 	}
 
+	public function get_skills(){
+		$this->db->select('name');
+		$this->db->from('skills');
+		$query = $this->db->get();
+		return $result = $query->result();
+	}
+
 }

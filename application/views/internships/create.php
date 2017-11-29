@@ -27,5 +27,16 @@
 		</div>
 	</div>
 
+	<div class="form-group">
+		<div class="form-group has-feedback">
+			<label for="skills">Vaardigheden</label>
+			<select name="skills" class="form-control">
+				<?php foreach($result  as $r): ?>
+				<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+	</div>
+
 	<button class="btn btn-primary btn-block btn-flat" type="submit" name="submit" value="Register">Verzend</button>
 </div>
