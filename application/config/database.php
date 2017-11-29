@@ -96,6 +96,7 @@ $db['local'] = array(
     );
  $db['test'] =  array(
         'dns'      => 'mysql:host=149.210.223.104;dbname=internship_db',
+        'database' => 'internship_db',
         'username' => 'internship',
         'password' => 'HNNM7A8K0',
         'dbdriver' => 'mysqli',
