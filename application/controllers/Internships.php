@@ -30,10 +30,6 @@ class internships extends CI_Controller
 
     public function create(){
 
-	    if($this->is_logged_in() == FALSE) {
-		    // login url is unknown;
-		    header("location:http://stagemarkt.local/login");
-	    }
 
         $this->load->helper('form');
         $this->load->model('Internships_model');
