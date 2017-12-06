@@ -30,7 +30,7 @@
 	<div class="form-group">
 		<div class="form-group has-feedback">
 			<label for="skills">Vaardigheden</label>
-			<select name="skills" class="form-control">
+			<select name="skills" class="form-control select2-single">
 				<?php foreach($result  as $r): ?>
 				<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
 				<?php endforeach; ?>
