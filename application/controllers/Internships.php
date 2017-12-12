@@ -38,6 +38,7 @@ class Internships extends CI_Controller
         $this->form_validation->set_rules('date_end', 'Date_end', 'required');
         $this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('year', 'Year', 'required');
+        $this->form_validation->set_rules('skills', 'Skills', 'required');
 
         if ($this->form_validation->run() == false) {
         $this->load->view('templates/header');
