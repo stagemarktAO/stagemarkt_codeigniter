@@ -6,10 +6,16 @@ class User extends CI_Controller
     public function __construct() {
 
         parent::__construct();
-        $this->load->library(array('session'));
-        $this->load->model('user_model');
-        if (uri_string() != 'logout' && isset($_SESSION['email'])) {
-            redirect(base_url());
+        $this->load->model('User_model');
+        if (!isset($_SESSION['email'])) {
+            if(uri_string() == 'logout' || uri_string() == 'profile'){
+                redirect(base_url());
+            }
+        }
+        else{
+            if(uri_string() == 'create' || uri_string() == 'login'){
+                redirect(base_url());;
+            }
         }
 
     }
@@ -91,14 +97,16 @@ class User extends CI_Controller
             $email = $this->input->post('email');
             $password = $this->input->post('password');
 
-            if ($this->user_model->resolve_user_login($email, $password)) {
-                $user_id = $this->user_model->get_user_id_from_email($email);
-                $user = $this->user_model->get_user($user_id);
+            if ($this->User_model->resolve_user_login($email, $password)) {
+                $user_id = $this->User_model->get_user_id_from_email($email);
+                $user = $this->User_model->get_user($user_id);
                 
                 // set session user datas
                 $_SESSION['user_id'] = (int)$user->id;
                 $_SESSION['email'] = (string)$user->email;
                 $_SESSION['fname'] = (string)$user->fname;
+                $_SESSION['lname'] = (string)$user->lname;
+                $_SESSION['phone'] = (string)$user->phonenumber;
                 $_SESSION['type'] = (int)$user->type;
                 $_SESSION['logged_in'] = (bool)true;
                 //echo'hello';
@@ -114,6 +122,27 @@ class User extends CI_Controller
                 $this->load->view('templates/footer');
 
             }
+        }
+    }
+    public function profile() {
+        //load views in
+        $this->form_validation->set_rules('fname', 'fname', 'required');
+        $this->form_validation->set_rules('lname', 'Lname', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/header');
+            $this->load->view('user/profile');
+            $this->load->view('templates/footer');
+
+        } else {
+            $this->User_model->update();
+
+            $_SESSION['email'] =  $this->input->post('email');
+            $_SESSION['fname'] =  $this->input->post('fname');
+            $_SESSION['lname'] =  $this->input->post('lname');
+            $_SESSION['phone'] =  $this->input->post('phone');
+            redirect('');
         }
     }
 }

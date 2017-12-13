@@ -10,7 +10,6 @@
 <body class="skin-blue">
     <!-- Main Header -->
     <header class="main-header">
-
         <!-- Logo -->
 
             <a href="<?= base_url('') ?>" class="logo">
@@ -47,7 +46,7 @@
                             <!-- Menu Body -->
                             <li class="user-body">
                                 <?php if ($_SESSION['type'] !== null){ ?>
-                                <p><?php if ( $_SESSION['type'] == 0){
+                                <p><?php echo $_SESSION['phone']; if ( $_SESSION['type'] == 0){
                                     echo 'student'; } else{
                                     echo 'contact persoon';
                                     } ?></p>
@@ -56,11 +55,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?= base_url('profile') ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <?php if (isset($_SESSION['email']) && $_SESSION['logged_in'] === TRUE) {
-                                    ?><a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Logout</a><?php } ?>
+                                    <a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Logout</a>
                                 </div>
                             </li>
                         </ul>
