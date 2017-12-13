@@ -125,6 +125,11 @@ class User extends CI_Controller
         }
     }
     public function profile() {
+        //load companies
+        $this->load->model("company_model");
+        $data['companies']  = $this->company_model->load_company();
+        $data['contact_company']    = ($this->company_model->get_user_company()) ? $this->company_model->get_user_company() : null;
+
         //load views in
         $this->form_validation->set_rules('fname', 'fname', 'required');
         $this->form_validation->set_rules('lname', 'Lname', 'required');
@@ -132,7 +137,7 @@ class User extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header');
-            $this->load->view('user/profile');
+            $this->load->view('user/profile', $data);
             $this->load->view('templates/footer');
 
         } else {
@@ -144,5 +149,10 @@ class User extends CI_Controller
             $_SESSION['phone'] =  $this->input->post('phone');
             redirect('');
         }
+    }
+
+    public function assign_company($user_id, $company_id = '') {
+        $this->load->model('company_model');
+        return $this->company_model($user_id, $company_id);
     }
 }
