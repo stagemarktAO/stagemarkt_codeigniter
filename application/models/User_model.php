@@ -8,11 +8,22 @@ class User_model extends CI_Model {
 		$this->load->database();
 	}
 
+    public function update()
+    {
+        $id = $_SESSION['user_id'];
+        $data = array(
+            'fname' => $this->input->post('fname'),
+            'lname' => $this->input->post('lname'),
+            'email' => $this->input->post('email'),
+            'phonenumber' => $this->input->post('phone')
+        );
+        $this->db->update('user', $data, array('id' => $id));
+
+    }
+
 	public function set_user()
 	{
-		$this->load->helper('url');
-
-		$data = array(
+	    $data = array(
 			'fname' => $this->input->post('fname'),
 			'lname' => $this->input->post('lname'),
 			'gender' => $this->input->post('gender'),
