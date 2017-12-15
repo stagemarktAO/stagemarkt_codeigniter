@@ -33,6 +33,7 @@
             <input type="email" class="form-control" name="email" value="<?php echo $_SESSION['email'];?>">
         </div>
     </div>
+    <?php if($_SESSION['type'] == 1) {?>
     <div class="form-group">
         <label for="company" class="col-sm-2 control-label">Company</label>
         <div class="col-sm-8">
@@ -45,6 +46,7 @@
         </div>
         <a class="col-sm-2 btn btn-info pull-right" href="<?=base_url() . 'comapany/create'?>">Nieuw bedrijf</a>
     </div>
+    <?php };?>
 </div>
 <div class="box-footer">
     <button class="btn btn-info pull-right" type="submit" name="submit" value="Update">Verzend</button>
