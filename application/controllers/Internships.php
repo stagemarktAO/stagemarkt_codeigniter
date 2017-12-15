@@ -28,7 +28,8 @@ class Internships extends CI_Controller
     public function create()
     {
 		$data = array();
-        $data['result'] = $this->Internships_model->get_skills();
+        $data['skills'] = $this->Internships_model->get_skills();
+        $data['gradation'] = $this->Internships_model->get_gradation();
 
 
         $data['title'] = 'maak stageplek aan';
@@ -39,6 +40,7 @@ class Internships extends CI_Controller
         $this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('year', 'Year', 'required');
         $this->form_validation->set_rules('skills', 'Skills', 'required');
+        $this->form_validation->set_rules('gradation', 'Gradation', 'required');
 
         if ($this->form_validation->run() == false) {
         $this->load->view('templates/header');

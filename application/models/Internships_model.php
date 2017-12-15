@@ -24,7 +24,14 @@ class Internships_model extends CI_Model
 		$this->db->select('name');
 		$this->db->from('skills');
 		$query = $this->db->get();
-		return $result = $query->result();
+		return $skills = $query->result();
+	}
+
+	public function get_gradation(){
+		$this->db->select('name');
+		$this->db->from('gradations');
+		$query = $this->db->get();
+		return $gradation = $query->result();
 	}
 
 }

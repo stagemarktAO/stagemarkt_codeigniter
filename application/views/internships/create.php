@@ -31,10 +31,18 @@
 		<div class="form-group has-feedback">
 			<label for="skills">Vaardigheden</label>
 			<select name="skills" class="form-control select2-single">
-				<?php foreach($result  as $r): ?>
+				<?php foreach($skills  as $r): ?>
 				<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
 				<?php endforeach; ?>
 			</select>
+		</div>
+
+		<div class="form-group has-feedback">
+			<label for="gradation">gradatie</label>
+			<select name="skills" class="form-control select2-single">
+			<?php foreach($gradation as $g):?>
+			<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
+			<?php endforeach; ?>
 		</div>
 	</div>
 
