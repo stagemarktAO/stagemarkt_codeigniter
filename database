@@ -6,6 +6,7 @@ CREATE TABLE `user` (
 	`type` INT(1) NOT NULL,
 	`email` VARCHAR(60) NOT NULL,
 	`password` VARCHAR(40) NOT NULL,
+	`phonenumber` INT(12) NULL,
 	PRIMARY KEY (`id`));
 
 CREATE TABLE `company_table` (
