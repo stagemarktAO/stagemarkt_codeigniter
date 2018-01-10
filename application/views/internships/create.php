@@ -27,8 +27,8 @@
 		</div>
 	</div>
 
-	<div class="form-group">
-		<div class="form-group has-feedback">
+	<div class="form-group"  id="div69">
+		<div class="form-group col-md-6 has-feedback">
 			<label for="skills">Vaardigheden</label>
 			<select name="skills" class="form-control select2-single">
 				<?php foreach($skills  as $r): ?>
@@ -37,12 +37,16 @@
 			</select>
 		</div>
 
-		<div class="form-group has-feedback">
+		<div class="form-group col-md-5 has-feedback">
 			<label for="gradation">gradatie</label>
-			<select name="skills" class="form-control select2-single">
+			<select name="skills" class="form-control select2-single" id="gradation">
 			<?php foreach($gradation as $g):?>
 			<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
 			<?php endforeach; ?>
+			</select>
+		</div>
+		<div class="form-group has-feedback" style="color: #19ae05">
+			<i class="fas fa-plus"></i>
 		</div>
 	</div>
 
