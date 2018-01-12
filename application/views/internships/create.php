@@ -27,9 +27,9 @@
 		</div>
 	</div>
 
-	<div class="form-group"  id="div69">
+	<div class="form-group">
 		<div class="form-group col-md-6 has-feedback">
-			<label for="skills">Vaardigheden</label>
+			<label for="skills">Vaardigheid</label>
 			<select name="skills" class="form-control select2-single">
 				<?php foreach($skills  as $r): ?>
 				<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
@@ -39,16 +39,34 @@
 
 		<div class="form-group col-md-5 has-feedback">
 			<label for="gradation">gradatie</label>
-			<select name="skills" class="form-control select2-single" id="gradation">
+			<select name="skills" class="form-control select2-single">
 			<?php foreach($gradation as $g):?>
 			<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
 			<?php endforeach; ?>
 			</select>
 		</div>
-		<div class="form-group has-feedback" style="color: #19ae05">
-			<i class="fas fa-plus"></i>
-		</div>
+		<a id="addSkills">nieuwe vaardigheid</a>
 	</div>
+
+	<div class="form-group" id="skills_div" style="display: none;">
+		<div class="form-group col-md-6 has-feedback">
+			<label for="skills">Vaardigheid</label>
+			<select name="skills" class="form-control select2-single" disabled>
+				<?php foreach($skills  as $r): ?>
+					<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<div class="form-group col-md-5 has-feedback">
+			<label for="gradation">gradatie</label>
+			<select name="skills" class="form-control select2-single" id="gradation" disabled>
+				<?php foreach($gradation as $g):?>
+					<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+			</div>
 
 	<button class="btn btn-primary btn-block btn-flat" type="submit" name="submit" value="Register">Verzend</button>
 </div>

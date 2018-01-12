@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/AdminLTE.min.css">
 		<link rel="stylesheet" href="<?=base_url();?>assets/css/main.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap-datepicker.min.css">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+		<link href="<?=base_url()?>assets/css/select2.min.css" rel="stylesheet" />
 	</head>
 <body class="skin-blue">
     <!-- Main Header -->
