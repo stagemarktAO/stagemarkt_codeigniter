@@ -16,3 +16,13 @@
 .skin-blue .main-header .navbar .nav>li>a:active{
     background-color: #367fa9 !important;
 }
+a.btn.btn-default{
+    margin-left: 17%;
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header{
+    height: 100px;
+}
+div.box-footer {
+    border-top: 0 solid #f4f4f4 !important  ;
+}
