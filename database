@@ -6,6 +6,7 @@ CREATE TABLE `user` (
 	`type` INT(1) NOT NULL,
 	`email` VARCHAR(60) NOT NULL,
 	`password` VARCHAR(40) NOT NULL,
+	`phonenumber` INT(12) NULL,
 	PRIMARY KEY (`id`));
 
 CREATE TABLE `company_table` (
@@ -15,3 +16,8 @@ CREATE TABLE `company_table` (
   `phonenumber` VARCHAR(20) NOT NULL,
   `website` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`));
+
+CREATE TABLE `contacts` (
+  `user_id` int(12) NOT NULL,
+   `company_id` int(11) NOT NULL
+));
