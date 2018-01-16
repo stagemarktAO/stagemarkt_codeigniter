@@ -39,7 +39,7 @@
 
 		<div class="form-group col-md-5 has-feedback">
 			<label for="gradation">gradatie</label>
-			<select name="skills" class="form-control select2-single">
+			<select name="gradation" class="form-control select2-single">
 			<?php foreach($gradation as $g):?>
 			<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
 			<?php endforeach; ?>
