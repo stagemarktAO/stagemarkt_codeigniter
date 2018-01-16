@@ -45,7 +45,7 @@
                 <?php }?>
             </select>
         </div>
-        <a class="col-sm-2 btn btn-info pull-right" href="<?=base_url() . 'comapany/create'?>">Nieuw bedrijf</a>
+        <a class="col-sm-2 btn btn-info pull-right" href="<?=base_url() . 'company/create'?>">Nieuw bedrijf</a>
     </div>
     <?php };?>
 </div>
