@@ -54,7 +54,7 @@ class Company_controller extends CI_Controller
 
     public function load_company($id)
     {
-        $data = $this->company_model->load_company($id);
+        $data = $this->Company_model->load_company($id);
         $this->load->view('company/company_view', $data);
     }
 
