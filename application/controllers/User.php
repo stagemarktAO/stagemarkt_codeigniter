@@ -145,23 +145,4 @@ class User extends CI_Controller
             redirect('');
         }
     }
-    public function admin() {
-        $rules = array('required' => 'Jij hebt %s nog niet ingevuld, dit veld is verplicht.');
-        //load views in
-        $this->form_validation->set_rules('fname', 'fname', 'required', $rules);
-        $this->form_validation->set_rules('lname', 'Lname', 'required', $rules);
-        $this->form_validation->set_rules('email', 'Email', 'required', $rules);
-
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('admin/login');
-
-        } else {
-            $this->User_model->update();
-            $_SESSION['email'] =  $this->input->post('email');
-            $_SESSION['fname'] =  $this->input->post('fname');
-            $_SESSION['lname'] =  $this->input->post('lname');
-            $_SESSION['phone'] =  $this->input->post('phone');
-            redirect('');
-        }
-    }
 }
