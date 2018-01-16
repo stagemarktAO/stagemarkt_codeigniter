@@ -21,7 +21,7 @@ class Internships_model extends CI_Model
 		$skills = $this->input->post('skills');
 
 		foreach ($skills as $skill){
-			
+			$this->db->insert('internships_skills', $skill);
 		}
 
 	}
