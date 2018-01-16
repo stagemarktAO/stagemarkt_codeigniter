@@ -16,8 +16,14 @@ class Internships_model extends CI_Model
 			'location' => $this->input->post('location'),
 			'year' => $this->input->post('year')
 		);
+		$this->db->insert('internships', $data);
+		$insert_id = $this->db->insert_id();
+		$skills = $this->input->post('skills');
 
-		return $this->db->insert('internships', $data);
+		foreach ($skills as $skill){
+			
+		}
+
 	}
 
 	public function get_skills(){
