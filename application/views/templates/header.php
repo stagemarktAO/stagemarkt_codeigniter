@@ -39,21 +39,13 @@
                         <?php } else{ ?> <li class="white"><a href="<?= base_url('login') ?>">login</a></li> <li><a href="<?= base_url('register') ?>">register</a></li> <?php } ?>
 
                     <ul class="dropdown-menu">
-                            <li class="user-body" id="next">
-                                <ul>
-                                    <li>voornaam:</li> <li><?php echo $_SESSION['fname'];?></li>
-                                </ul>
-                                <ul>
-                                    <li>achternaam:</li> <li><?php echo $_SESSION['lname'];?></li>
-                                </ul>
-                                <ul>
-                                    <li>email:</li> <li><?php echo $_SESSION['email'];?></li>
-                                </ul>
-                                    <?php if ( $_SESSION['phone'] != null){?>
-                                        <ul>
-                                            <li>telefoon nummer:</li> <li><?php echo $_SESSION['phone'];?></li>
-                                        </ul>
-                                    <?php } ?>
+                            <li class="user-body">
+                                <p>voornaam: <?php echo $_SESSION['fname'];?></p>
+                                <p>achternaam: <?php echo $_SESSION['lname'];?></p>
+                                <p>email: <?php echo $_SESSION['email'];?></p>
+                                <?php if ( $_SESSION['phone'] != null){?>
+                                    <p>telefoon nummer: <?php echo $_SESSION['phone'];?></p>
+                                <?php } ?>
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
