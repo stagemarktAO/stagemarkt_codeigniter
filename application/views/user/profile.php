@@ -34,27 +34,25 @@
             </div>
         </div>
     </div>
-
-    <div class="box-footer">
-        <button class="btn btn-info pull-right" type="submit" name="submit" value="Update">Verzend</button>
-        <a class="btn btn-default" href="<?= base_url('') ?>">Annuleren</a>
+    <?php if($_SESSION['type'] == 1) {?>
+    <div class="form-group">
+        <label for="company" class="col-sm-2 control-label">Company</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="company_id">
+                <option id="null" value="null">geen</option>
+                <?php foreach($companies AS $company) { ?>
+                    <option id="<?=$company['id'];?>" value="<?=$company['id'];?>" <?=($contact_company->company_id == $company['id'])?"selected=\"selected\"":''?>><?= $company['company_name'] . ', ' . $company['adress'];?></option>
+                <?php }?>
+            </select>
+        </div>
+        <a class="col-sm-2 btn btn-info pull-right" href="<?=base_url() . 'comapany/create'?>">Nieuw bedrijf</a>
     </div>
-
-<!--    --><?php //if($_SESSION['type'] == 1) {?>
-<!--    <div class="form-group">-->
-<!--        <label for="company" class="col-sm-2 control-label">Company</label>-->
-<!--        <div class="col-sm-8">-->
-<!--            <select class="form-control" name="company">-->
-<!--                <option id="null" value="null">geen</option>-->
-<!--                --><?php //foreach($companies AS $company) { ?>
-<!--                    <option id="--><?//=$company['id'];?><!--" value="--><?//=$company['id'];?><!--" selected="--><?//=($contact_company->company_id == $company['id'])?"selected":''?><!--">--><?//= $company['company_name'] . ', ' . $company['adress'];?><!--</option>-->
-<!--                --><?php //}?>
-<!--            </select>-->
-<!--        </div>-->
-<!--        <a class="col-sm-2 btn btn-info pull-right" href="--><?//=base_url() . 'comapany/create'?><!--">Nieuw bedrijf</a>-->
-<!--    </div>-->
-<!--    --><?php //};?>
+    <?php };?>
 </div>
 
+<div class="box-footer">
+    <button class="btn btn-info pull-right" type="submit" name="submit" value="Update">Verzend</button>
+    <a class="btn btn-default" href="<?= base_url('') ?>">Annuleren</a>
+</div>
 
 </form>
