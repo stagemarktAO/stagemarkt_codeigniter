@@ -20,19 +20,19 @@ class User_model extends CI_Model {
         $this->db->update('user', $data, array('id' => $id));
 
         //insert concatact -> company relation in db, if exsist update.
-        $company = array(
-            'user_id'    => $id,
-            'company_id' => $this->input->post('company')
-        );
-        $this->db->where('user_id',$id);
-        $q = $this->db->get('contacts');
-        if ( $q->num_rows() > 0 )
-        {
-            $this->db->where('user_id',$id);
-            $this->db->update('contacts',$company);
-        } else {
-            $this->db->insert('contacts',$company);
-        }
+//        $company = array(
+//            'user_id'    => $id,
+//            'company_id' => $this->input->post('company')
+//        );
+//        $this->db->where('user_id',$id);
+//        $q = $this->db->get('contacts');
+//        if ( $q->num_rows() > 0 )
+//        {
+//            $this->db->where('user_id',$id);
+//            $this->db->update('contacts',$company);
+//        } else {
+//            $this->db->insert('contacts',$company);
+//        }
     }
 
 	public function set_user()
