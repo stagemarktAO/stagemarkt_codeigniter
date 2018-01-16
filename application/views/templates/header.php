@@ -39,14 +39,20 @@
                         <?php } else{ ?> <li class="white"><a href="<?= base_url('login') ?>">login</a></li> <li><a href="<?= base_url('register') ?>">register</a></li> <?php } ?>
 
                     <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            </li>
+                            <!-- Menu Body -->
                             <li class="user-body">
-                                <p>voornaam: <?php echo $_SESSION['fname'];?></p>
-                                <p>achternaam: <?php echo $_SESSION['lname'];?></p>
-                                <p>email: <?php echo $_SESSION['email'];?></p>
-                                <?php if ( $_SESSION['phone'] != null){?>
-                                    <p>telefoon nummer: <?php echo $_SESSION['phone'];?></p>
+                                <?php if ($_SESSION['type'] !== null){ ?>
+                                <p><?php echo $_SESSION['phone']; if ( $_SESSION['type'] == 0){
+                                    echo 'student'; } else{
+                                    echo 'contact persoon';
+                                    } ?></p>
                                 <?php } ?>
                             </li>
+                            <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="<?= base_url('profile') ?>" class="btn btn-default btn-flat">Profile</a>
