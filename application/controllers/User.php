@@ -138,6 +138,7 @@ class User extends CI_Controller
 
         } else {
             $this->User_model->update();
+            $_SESSION['feedback'] = $this->input->post('feedback');
             $_SESSION['email'] =  $this->input->post('email');
             $_SESSION['fname'] =  $this->input->post('fname');
             $_SESSION['lname'] =  $this->input->post('lname');
