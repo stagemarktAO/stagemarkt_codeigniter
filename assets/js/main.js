@@ -19,4 +19,5 @@ $("#addSkills").click(function () {
 	clone.id = 'skills_div1';
 	document.body.append(clone);
 	$("#skills_div").show();
+	$("#gradation, #skills").prop("disabled", false);
 });

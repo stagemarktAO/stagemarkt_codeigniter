@@ -51,7 +51,7 @@
 	<div class="form-group" id="skills_div" style="display: none;">
 		<div class="form-group col-md-6 has-feedback">
 			<label for="skills">Vaardigheid</label>
-			<select name="skills" class="form-control select2-single" disabled>
+			<select name="skills" class="form-control select2-single" id="skills" disabled>
 				<?php foreach($skills  as $r): ?>
 					<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
 				<?php endforeach; ?>
