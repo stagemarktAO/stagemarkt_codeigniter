@@ -30,18 +30,18 @@
 	<div class="form-group">
 		<div class="form-group col-md-6 has-feedback">
 			<label for="skills">Vaardigheid</label>
-			<select name="skills" class="form-control select2-single">
+			<select name="skills[]" class="form-control select2-single">
 				<?php foreach($skills  as $r): ?>
-				<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
+				<option value="<?php echo $r->id; ?>"> <?php echo $r->name ?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>
 
 		<div class="form-group col-md-5 has-feedback">
 			<label for="gradation">gradatie</label>
-			<select name="gradation" class="form-control select2-single">
+			<select name="gradation[]" class="form-control select2-single">
 			<?php foreach($gradation as $g):?>
-			<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
+			<option value="<?php echo $g->id; ?>"> <?php echo $g->name ?></option>
 			<?php endforeach; ?>
 			</select>
 		</div>
@@ -51,18 +51,18 @@
 	<div class="form-group" id="skills_div" style="display: none;">
 		<div class="form-group col-md-6 has-feedback">
 			<label for="skills">Vaardigheid</label>
-			<select name="skills" class="form-control select2-single" id="skills" disabled>
+			<select name="skills[]" class="form-control select2-single" id="skills" disabled>
 				<?php foreach($skills  as $r): ?>
-					<option value="<?php echo $r->name; ?>"> <?php echo $r->name ?></option>
+					<option value="<?php echo $r->id; ?>"> <?php echo $r->name ?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>
 
 		<div class="form-group col-md-5 has-feedback">
 			<label for="gradation">gradatie</label>
-			<select name="skills" class="form-control select2-single" id="gradation" disabled>
+			<select name="gradation[]" class="form-control select2-single" id="gradation" disabled>
 				<?php foreach($gradation as $g):?>
-					<option value="<?php echo $g->name; ?>"> <?php echo $g->name ?></option>
+					<option value="<?php echo $g->id; ?>"> <?php echo $g->name ?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>
