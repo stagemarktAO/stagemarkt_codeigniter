@@ -130,8 +130,9 @@ class User extends CI_Controller
         if((int)$_SESSION['type'] === 1) {
             $this->load->model("company_model");
             $data['companies']  = $this->company_model->load_company();
-            $data['contact_company']    = ($this->company_model->get_user_company()) ? $this->company_model->get_user_company() : null;
+            $data['contact_company'] = $this->company_model->get_user_company();
         }
+
         $this->form_validation->set_rules('fname', 'fname', 'required');
         $this->form_validation->set_rules('lname', 'Lname', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -147,7 +148,7 @@ class User extends CI_Controller
             $lname = $this->input->post('lname');
             $company_id = $this->input->post('company_id');
 
-        //load views in
+            //load views in
             $phone = $this->input->post('phone');
 
             $this->User_model->update($email, $fname, $lname, $phone, $company_id);
