@@ -47,4 +47,10 @@ class Mail_model extends CI_Model
             return true;
         }
     }
+
+    public function send_recovery_email()
+    {
+        // send email
+        // use the above function' template in a new function
+    }
 }

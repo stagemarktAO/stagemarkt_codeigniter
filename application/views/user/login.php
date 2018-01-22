@@ -31,6 +31,10 @@
                 <div class="col-xs-4">
                     <button type="submit" name="submit" value="login" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
+                <!-- reset password link-->
+                <div class="col-xs-5 pull-right">
+                    <a href="<?= base_url('')?>reset" class="btn btn-primary btn-block btn-flat">Forgot password</a>
+                </div>
                 <!-- /.col -->
             </div>
         </form>

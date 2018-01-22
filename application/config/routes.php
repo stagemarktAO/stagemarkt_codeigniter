@@ -56,6 +56,7 @@ $route['Internships/create'] = 'Internships/create';
 $route['register'] = 'user/create';
 $route['login'] = 'user/login';
 $route['loggedin'] = 'loggedin';
+$route['reset'] = 'Mail_controller/reset_password';
 $route['default_controller'] = 'welcome';
 $route['student'] = 'Student_controller';
 $route['company'] = "Company_controller";
