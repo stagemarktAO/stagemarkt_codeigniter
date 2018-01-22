@@ -38,31 +38,35 @@
                             </a>
                         <?php } else{ ?> <li class="white"><a href="<?= base_url('login') ?>">login</a></li> <li><a href="<?= base_url('register') ?>">register</a></li> <?php } ?>
 
-                    <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <?php if ($_SESSION['type'] !== null){ ?>
-                                <p><?php echo $_SESSION['phone']; if ( $_SESSION['type'] == 0){
-                                    echo 'student'; } else{
-                                    echo 'contact persoon';
-                                    } ?></p>
+                        <ul class="dropdown-menu">
+                            <table id="admin2" class="user-body">
+                                <tr>
+                                    <td>voornaam:</td>
+                                    <td><?php echo $_SESSION['fname'];?></td>
+                                </tr>
+                                <tr>
+                                    <td>achternaam:</td> <td><?php echo $_SESSION['lname'];?></td>
+                                </tr>
+                                <tr>
+                                    <td>email:</td> <td><?php echo $_SESSION['email'];?></td>
+                                </tr>
+                                <?php if ( $_SESSION['phone'] != null){?>
+                                    <tr>
+                                        <td>telefoon:</td> <td><?php echo $_SESSION['phone'];?></td>
+                                    </tr>
                                 <?php } ?>
-                            </li>
-                            <!-- Menu Footer-->
+                            </table>
+
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="<?= base_url('profile') ?>" class="btn btn-default btn-flat">Profile</a>
                                 </div>
-                                <div class="pull-right">
+                                <div id="fix" class="pull-right">
                                     <a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Logout</a>
                                 </div>
                             </li>
                         </ul>
-                    </li>
+
                     <!-- Control Sidebar Toggle Button -->
 
                 </ul>

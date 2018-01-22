@@ -126,11 +126,13 @@ class User extends CI_Controller
     }
     public function profile() {
         //load companies
-        $this->load->model("company_model");
-        $data['companies']  = $this->company_model->load_company();
-        $data['contact_company']    = ($this->company_model->get_user_company()) ? $this->company_model->get_user_company() : null;
+        $data = "";
+        if((int)$_SESSION['type'] === 1) {
+            $this->load->model("company_model");
+            $data['companies']  = $this->company_model->load_company();
+            $data['contact_company'] = $this->company_model->get_user_company();
+        }
 
-        //load views in
         $this->form_validation->set_rules('fname', 'fname', 'required');
         $this->form_validation->set_rules('lname', 'Lname', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -141,18 +143,26 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
 
         } else {
-            $this->User_model->update();
+            $email = $this->input->post('email');
+            $fname = $this->input->post('fname');
+            $lname = $this->input->post('lname');
+            $company_id = $this->input->post('company_id');
 
-            $_SESSION['email'] =  $this->input->post('email');
-            $_SESSION['fname'] =  $this->input->post('fname');
-            $_SESSION['lname'] =  $this->input->post('lname');
-            $_SESSION['phone'] =  $this->input->post('phone');
+            //load views in
+            $phone = $this->input->post('phone');
+
+            $this->User_model->update($email, $fname, $lname, $phone, $company_id);
+
+            $_SESSION['email'] =  $email;
+            $_SESSION['fname'] =  $fname;
+            $_SESSION['lname'] =  $lname;
+            $_SESSION['phone'] =  $phone;
             redirect('');
         }
     }
 
     public function assign_company($user_id, $company_id = '') {
-        $this->load->model('company_model');
-        return $this->company_model($user_id, $company_id);
+          $this->load->model('company_model');
+          return $this->company_model($user_id, $company_id);
     }
 }
