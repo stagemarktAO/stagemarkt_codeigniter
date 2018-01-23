@@ -52,4 +52,12 @@ class Internships_model extends CI_Model
 		return $gradation = $query->result();
 	}
 
+//function to get the intnerships from the database
+	public function get_internships(){
+		$this->db->select('*');
+		$this->db->from('internships');
+		$query = $this->db->get();
+		return $internships = $query->result();
+	}
+
 }

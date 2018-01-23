@@ -15,17 +15,15 @@ class Internships extends CI_Controller
 		}
 	}
 
+//function to load the index / all the internships
     public function index()
     {
+    	$data = array();
+    	$data['internships'] = $this->Internships_model->get_internships();
 
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('internships/create');
-        }
-        else
-        {
-            $this->load->view('internships/create');
-        }
+    	$this->load->view('templates/header');
+    	$this->load->view('internships/index', $data);
+    	$this->load->view('templates/footer');
     }
 // function to create the internship
     public function create()
