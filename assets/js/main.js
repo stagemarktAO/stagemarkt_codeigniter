@@ -5,9 +5,6 @@ $( document ).ready(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-$(document).ready(function() {
-	$('.select2-single').select2();
-});
 
 $('#sandbox-container .input-daterange').datepicker({
 	format: 'yyyy/mm/dd'
@@ -16,8 +13,17 @@ $('#sandbox-container .input-daterange').datepicker({
 $("#addSkills").click(function () {
 	var div = document.getElementById('skills_div'),
 		clone = div.cloneNode(true);
-	clone.id = 'skills_div1';
-	document.body.append(clone);
-	$("#skills_div").show();
-	$("#gradation, #skills").prop("disabled", false);
+	clone.id = 'skills_div';
+	var removebutton = document.createElement("a");
+	removebutton.setAttribute("id", "remove_skills");
+	removebutton.innerHTML = "verwijder vaardigheid";
+	clone.append(removebutton);
+	$(".skills_group").append(clone);
+});
+
+
+$(".skills_group").click(function (e) {
+	if (e.target.id == "remove_skills") {
+		e.target.parentElement.remove();
+	}
 });
