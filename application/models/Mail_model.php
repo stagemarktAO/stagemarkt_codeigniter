@@ -58,7 +58,7 @@ class Mail_model extends CI_Model
         }
     }
 
-    public function send_recovery_email()
+    public function send_recovery_email($receiver)
     {
         /**
          * recovery link, link to a User.php function to give the user a form with the option
@@ -66,11 +66,41 @@ class Mail_model extends CI_Model
          *
          * the given password must be hashed with the same algorithm as in the register function.
          */
-        $body = 'recovery link';
-        // send email from the template function
-        if($this->email_template('Recovery', $body, $this->input->post('email'))) {
-            return TRUE;
+        $token = $this->forge_reset_token($receiver);
+        if($token) {
+            // send email from the template function
+            $body = 'recovery link';
+            if($this->email_template('Recovery', $body, $receiver)) {
+                // user can reset his password.
+                return TRUE;
+            } else {
+                // user cannot reset his password nor gotten a reset mail.
+                return FALSE;
+            }
         } else {
+            // for an unknown reason no token could be forged.
+            return FALSE;
+        }
+    }
+
+    private function forge_reset_token($email)
+    {
+        /**
+         * generate random token to reset an user' password.
+         */
+        $token = random_bytes(20);
+        $user = $this->db->get_where(array('email', $email), 'user')->row();
+        if($user) {
+            // update database to insert the token.
+            $this->db->set('token', $token);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+            if($this->db->affected_rows() === 1) {
+                // return token to the mail function.
+                return $token;
+            }
+        } else {
+            // no user found with email = $email.
             return FALSE;
         }
     }

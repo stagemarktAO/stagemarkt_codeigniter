@@ -34,7 +34,8 @@ class Mail_controller extends CI_Controller
         } else {
             // get variable and send to the model
             $email = $this->input->post('email');
-            $this->load->model->Mail_model($email);
+            $this->load->model('mail_model');
+            $this->mail_model->send_recovery_email($email);
         }
     }
 }

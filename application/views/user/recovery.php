@@ -14,7 +14,7 @@
         <?php echo validation_errors(); ?>
         <div>
             <!-- form send to Mail_controller to send an email-->
-            <?php form_open('Mail_controller/reset_password'); ?>
+            <?php echo form_open('Mail_controller/reset_password'); ?>
                 <!--submit emailadress for recover email-->
                 <div class="form-group has-feedback">
                     <input type="email" name="email" placeholder="email" class="form-control" value="<?php echo set_value('email'); ?>" /><br />
