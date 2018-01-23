@@ -10,21 +10,22 @@ class Internships extends CI_Controller
         if (!isset($_SESSION['email'])) {
             redirect(base_url());
         }
+		if((int)$_SESSION['type'] !== 1) {
+			redirect(base_url());
+		}
 	}
 
+//function to load the index / all the internships
     public function index()
     {
+    	$data = array();
+    	$data['internships'] = $this->Internships_model->get_internships();
 
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('internships/create');
-        }
-        else
-        {
-            $this->load->view('internships/create');
-        }
+    	$this->load->view('templates/header');
+    	$this->load->view('internships/index', $data);
+    	$this->load->view('templates/footer');
     }
-
+// function to create the internship
     public function create()
     {
 		$data = array();
@@ -54,6 +55,7 @@ class Internships extends CI_Controller
         }
     }
 
+// function to check if user is looged in to check if you can create a new internship
 	public function is_logged_in()
 	{
 		return $this->Internships_model->is_logged_in();

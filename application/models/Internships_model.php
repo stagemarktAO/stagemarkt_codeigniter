@@ -6,7 +6,7 @@ class Internships_model extends CI_Model
 	{
 		$this->load->database();
 	}
-
+// function to implement data from internship creaton into the database
 	public function set_internship()
 	{
 		$data = array(
@@ -36,6 +36,7 @@ class Internships_model extends CI_Model
 
 	}
 
+// function to get the skills from the database
 	public function get_skills(){
 		$this->db->select('id, name');
 		$this->db->from('skills');
@@ -43,11 +44,20 @@ class Internships_model extends CI_Model
 		return $skills = $query->result();
 	}
 
+// functon to get the gradations from the database
 	public function get_gradation(){
 		$this->db->select('id, name');
 		$this->db->from('gradations');
 		$query = $this->db->get();
 		return $gradation = $query->result();
+	}
+
+//function to get the intnerships from the database
+	public function get_internships(){
+		$this->db->select('*');
+		$this->db->from('internships');
+		$query = $this->db->get();
+		return $internships = $query->result();
 	}
 
 }

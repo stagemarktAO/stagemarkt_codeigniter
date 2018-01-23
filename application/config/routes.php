@@ -53,6 +53,7 @@ $route['user/loggedin'] = 'loggedin';
 $route['logout'] = 'user/logout';
 $route['profile'] = 'user/profile';
 $route['Internships/create'] = 'Internships/create';
+$route['internships'] = 'internships/index';
 $route['register'] = 'user/create';
 $route['login'] = 'user/login';
 $route['loggedin'] = 'loggedin';

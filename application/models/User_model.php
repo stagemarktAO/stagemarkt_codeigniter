@@ -8,17 +8,33 @@ class User_model extends CI_Model {
 		$this->load->database();
 	}
 
-    public function update()
+    public function update($email, $fname, $lname, $phone, $company_id)
     {
         $id = $_SESSION['user_id'];
         $data = array(
-            'fname' => $this->input->post('fname'),
-            'lname' => $this->input->post('lname'),
-            'email' => $this->input->post('email'),
-            'phonenumber' => $this->input->post('phone')
+            'fname' => $fname,
+            'lname' => $lname,
+            'email' => $email,
+            'phonenumber' => $phone
         );
         $this->db->update('user', $data, array('id' => $id));
 
+        //insert contact -> company relation in db, if exsist update.
+        if($company_id)
+        $company = array(
+            'user_id'    => $id,
+            'company_id' => $company_id
+        );
+        $this->db->where('user_id',$id);
+        $result_row = $this->db->get('contacts')->row();
+
+        if ( isset($result_row))
+        {
+            $this->db->where('user_id',$id);
+            $this->db->update('contacts',$company);
+        } else {
+            $this->db->insert('contacts',$company);
+        }
     }
 
 	public function set_user()
