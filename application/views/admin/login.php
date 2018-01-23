@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap-datepicker.min.css">
 </head>
 <body>
-<div class="admin">
-    <input type="email" name="email" placeholder="email" id="admin2" value="<?php echo set_value('email'); ?>" /><br />
+    <?php echo validation_errors(); ?>
+    <?php if (!empty($error)) { echo $error; };?>
+    <div class="admin">
+        <?php echo form_open('user/admin'); ?>
+            <input type="email" name="email" placeholder="email" id="admin2" value="<?php echo set_value('email'); ?>" /><br />
 
     <input type="password" name="password" placeholder="password" id="admin2" /><br />
 
