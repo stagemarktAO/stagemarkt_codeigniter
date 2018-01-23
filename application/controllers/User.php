@@ -97,6 +97,7 @@ class User extends CI_Controller
             // set variables from the form
             $email = $this->input->post('email');
             $password = $this->input->post('password');
+            if (s)
 
             if ($this->User_model->resolve_user_login($email, $password)) {
                 $user_id = $this->User_model->get_user_id_from_email($email);
@@ -156,52 +157,63 @@ class User extends CI_Controller
         }
     }
     public function admin() {
-        $data = new stdClass();
-        $rules = array('required' => 'Jij hebt %s nog niet ingevuld, dit veld is verplicht.');
-        //load views in
-        $this->form_validation->set_rules('email', 'email', 'required', $rules);
-        $this->form_validation->set_rules('password', 'Password', 'required', $rules);
 
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('admin/login');
+        if (!isset($_SESSION['admin'])) {
+            $data = new stdClass();
+            $rules = array('required' => 'Jij hebt %s nog niet ingevuld, dit veld is verplicht.');
+            //load views in
+            $this->form_validation->set_rules('email', 'email', 'required', $rules);
+            $this->form_validation->set_rules('password', 'Password', 'required', $rules);
 
-        } else {
-            // set variables from the form
-            $email = $this->input->post('email');
-            $password = $this->input->post('password');
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('admin/login');
 
-            if ($this->User_model->resolve_user_login($email, $password)) {
-                $user_id = $this->User_model->get_user_id_from_email($email);
-                $user = $this->User_model->get_user($user_id);
-                if ((int)$user->type == 3) {
-                    // set session user datas
-                    $_SESSION['user_id'] = (int)$user->id;
-                    $_SESSION['email'] = (string)$user->email;
-                    $_SESSION['fname'] = (string)$user->fname;
-                    $_SESSION['lname'] = (string)$user->lname;
-                    $_SESSION['phone'] = (string)$user->phonenumber;
-                    $_SESSION['type'] = (int)$user->type;
-                    $_SESSION['logged_in'] = (bool)true;
-                    //echo'hello';
-                    // user login ok
-                    redirect('');
+            } else {
+                $email = $this->input->post('email');
+                $password = $this->input->post('password');
 
-                } elseif ((int)$user->type == 0 or 1) {
+
+
+                if ($this->User_model->resolve_user_login($email, $password)) {
+                    $user_id = $this->User_model->get_user_id_from_email($email);
+                    $user = $this->User_model->get_user($user_id);
+                    if ((int)$user->type == 3) {
+                        // set session user datas
+                        $_SESSION['user_id'] = (int)$user->id;
+                        $_SESSION['email'] = (string)$user->email;
+                        $_SESSION['fname'] = (string)$user->fname;
+                        $_SESSION['lname'] = (string)$user->lname;
+                        $_SESSION['phone'] = (string)$user->phonenumber;
+                        $_SESSION['type'] = (int)$user->type;
+                        $_SESSION['logged_in'] = (bool)true;
+                        $_SESSION['admin'] = (bool)true;
+                        //echo'hello';
+                        // user login ok
+                        redirect('admin');
+
+                    } elseif ((int)$user->type == 0 or 1) {
+                        // login failed
+
+                        $data->error = 'Geen admin account.';
+                        // send error to the view
+                        $this->load->view('admin/login', $data);
+
+                    }
+                } else {
                     // login failed
+                    $data->error = 'Verkeerd email of wachtwoord.';
 
-                    $data->error = 'Geen admin account.';
                     // send error to the view
                     $this->load->view('admin/login', $data);
 
                 }
-            } else {
-                // login failed
-                $data->error = 'Verkeerd email of wachtwoord.';
-
-                // send error to the view
-                $this->load->view('admin/login', $data);
-
             }
+        }
+        else{
+            $this->load->view('templates/header');
+            $this->load->view('admin/index');
+            $this->load->view('templates/footer');
+
         }
     }
 }
