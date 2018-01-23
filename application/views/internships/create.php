@@ -27,5 +27,28 @@
 		</div>
 	</div>
 
+	<div class="skills_group">
+		<a id="addSkills">nieuwe vaardigheid</a>
+		<div class="form-group" id="skills_div">
+			<div class="form-group col-md-6 has-feedback">
+				<label for="skills">Vaardigheid</label>
+				<select name="skills[]" class="form-control select2-single">
+					<?php foreach($skills  as $r): ?>
+						<option value="<?php echo $r->id; ?>"> <?php echo $r->name ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+
+			<div class="form-group col-md-5 has-feedback">
+				<label for="gradation">gradatie</label>
+				<select name="gradation[]" class="form-control select2-single">
+					<?php foreach($gradation as $g):?>
+						<option value="<?php echo $g->id; ?>"> <?php echo $g->name ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+	</div>
+
 	<button class="btn btn-primary btn-block btn-flat" type="submit" name="submit" value="Register">Verzend</button>
 </div>

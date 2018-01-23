@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="<?=base_url();?>assets/css/AdminLTE.min.css">
 		<link rel="stylesheet" href="<?=base_url();?>assets/css/main.css">
         <link rel="stylesheet" href="<?=base_url();?>assets/css/bootstrap-datepicker.min.css">
+		<link href="<?=base_url()?>assets/css/select2.min.css" rel="stylesheet" />
 	</head>
 <body class="skin-blue">
     <!-- Main Header -->
