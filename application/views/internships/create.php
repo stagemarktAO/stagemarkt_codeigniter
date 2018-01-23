@@ -28,7 +28,9 @@
 	</div>
 
 	<div class="skills_group">
-		<a id="addSkills">nieuwe vaardigheid</a>
+		<div class="form-group">
+			<a id="addSkills"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="color: #19ae05;"></span></a>
+		</div>
 		<div class="form-group" id="skills_div">
 			<div class="form-group col-md-6 has-feedback">
 				<label for="skills">Vaardigheid</label>
