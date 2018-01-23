@@ -10,6 +10,9 @@ class Internships extends CI_Controller
         if (!isset($_SESSION['email'])) {
             redirect(base_url());
         }
+		if((int)$_SESSION['type'] !== 1) {
+			redirect(base_url());
+		}
 	}
 
     public function index()
