@@ -21,3 +21,53 @@ CREATE TABLE `contacts` (
   `user_id` int(12) NOT NULL,
    `company_id` int(11) NOT NULL
 ));
+
+CREATE TABLE `gradations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `gradations`
+  ADD PRIMARY KEY (`id`);
+
+INSERT INTO `gradations` (`id`, `name`) VALUES
+(1, 'onvoldoende'),
+(2, 'voldoende'),
+(3, 'goed'),
+(4, 'uitstekend');
+
+CREATE TABLE `internships` (
+  `id` int(12) NOT NULL,
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `education` varchar(50) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `year` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `internships`
+  ADD PRIMARY KEY (`id`);
+
+CREATE TABLE `internships_skills` (
+  `internships_id` int(11) DEFAULT NULL,
+  `skills_id` int(11) DEFAULT NULL,
+  `gradations_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `internships_skills`
+  ADD KEY `skills_id` (`skills_id`),
+  ADD KEY `internships_id` (`internships_id`),
+  ADD KEY `gradations_id` (`gradations_id`);
+
+ALTER TABLE `internships_skills`
+  ADD CONSTRAINT `FK_internships_skills_gradations_id` FOREIGN KEY (`gradations_id`) REFERENCES `gradations` (`id`),
+  ADD CONSTRAINT `FK_internships_skills_internships` FOREIGN KEY (`internships_id`) REFERENCES `internships` (`id`),
+  ADD CONSTRAINT `FK_internships_skills_skills_id` FOREIGN KEY (`skills_id`) REFERENCES `skills` (`id`);
+
+CREATE TABLE `skills` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `skills`
+  ADD PRIMARY KEY (`id`);
