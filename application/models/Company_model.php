@@ -39,14 +39,14 @@ class company_model extends CI_Model
 
     public function get_user_company()
     {
-        $this->db->select('*');
         $this->db->where(array('user_id' => $_SESSION['user_id']));
         $this->db->from('contacts');
         $this->db->join('company_table', 'contacts.company_id = company_table.id');
-        if($this->db->affected_rows() > 0) {
-            return $this->db->get()->row();
+        $result = $this->db->get();
+        if($this->db->affected_rows() === 1) {
+            return $result->row();
         } else {
-            return false;
+            return FALSE;
         }
     }
 

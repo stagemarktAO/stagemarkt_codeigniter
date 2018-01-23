@@ -20,6 +20,7 @@ class User_model extends CI_Model {
         $this->db->update('user', $data, array('id' => $id));
 
         //insert contact -> company relation in db, if exsist update.
+        if($company_id)
         $company = array(
             'user_id'    => $id,
             'company_id' => $company_id

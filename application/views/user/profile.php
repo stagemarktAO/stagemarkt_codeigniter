@@ -6,7 +6,7 @@
  * Time: 10:57
  */
     echo validation_errors();
-    echo form_open('user/profile', 'class="form-horizontal col-sm-10" onSubmit="alert(\'Als u iets in uw profiel veranderd heeft is dit gelukt.\');"');
+    echo form_open('user/profile', 'class="form-horizontal col-sm-10" onSubmit="alert(\'Succesvol verzonden.\');"');
 ?>
     <div class="box-body">
         <div class="form-group">
@@ -39,9 +39,9 @@
         <label for="company" class="col-sm-2 control-label">Company</label>
         <div class="col-sm-8">
             <select class="form-control" name="company_id">
-                <option id="null" value="null">geen</option>
+                <option>geen</option>
                 <?php foreach($companies AS $company) { ?>
-                    <option id="<?=$company['id'];?>" value="<?=$company['id'];?>" <?=($contact_company->company_id == $company['id'])?"selected=\"selected\"":''?>><?= $company['company_name'] . ', ' . $company['adress'];?></option>
+                    <option id="<?=$company['id'];?>" value="<?=$company['id'];?>" <?=(isset($contact_company->company_id) ? $contact_company->company_id == $company['id']?"selected=\"selected\"":'' : '')?>><?= $company['company_name'] . ', ' . $company['adress'];?></option>
                 <?php }?>
             </select>
         </div>
