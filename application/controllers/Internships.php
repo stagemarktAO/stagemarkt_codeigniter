@@ -24,7 +24,7 @@ class Internships extends CI_Controller
             $this->load->view('internships/create');
         }
     }
-
+// function to create the internship
     public function create()
     {
 		$data = array();
@@ -54,6 +54,7 @@ class Internships extends CI_Controller
         }
     }
 
+// function to check if user is looged in to check if you can create a new internship
 	public function is_logged_in()
 	{
 		return $this->Internships_model->is_logged_in();

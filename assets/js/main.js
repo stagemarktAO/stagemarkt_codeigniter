@@ -9,6 +9,7 @@ $('#sandbox-container .input-daterange').datepicker({
 	format: 'yyyy/mm/dd'
 });
 
+//function to clone the skills div to add another skill to the internship
 $("#addSkills").click(function () {
 	var div = document.getElementById('skills_div'),
 		clone = div.cloneNode(true);
@@ -20,7 +21,7 @@ $("#addSkills").click(function () {
 	$(".skills_group").append(clone);
 });
 
-
+//function to remove the cloned div when you dont need the extra skill
 $(".skills_group").click(function (e) {
 	if (e.target.id == "remove_skills") {
 		e.target.parentElement.remove();
