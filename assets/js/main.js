@@ -5,7 +5,6 @@ $( document ).ready(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-
 $('#sandbox-container .input-daterange').datepicker({
 	format: 'yyyy/mm/dd'
 });
