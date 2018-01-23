@@ -18,11 +18,10 @@ class Internships extends CI_Controller
 //function to load the index / all the internships
     public function index()
     {
-    	$data = array();
-    	$data['internships'] = $this->Internships_model->get_internships();
+    	$internships['internships'] = $this->Internships_model->get_internships();
 
     	$this->load->view('templates/header');
-    	$this->load->view('internships/index', $data);
+    	$this->load->view('internships/index', $internships);
     	$this->load->view('templates/footer');
     }
 // function to create the internship

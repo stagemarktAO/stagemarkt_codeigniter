@@ -1,6 +1,6 @@
 <div class="col-md-offset-2 col-md-8">
 	<p>hier staan alle stageplaatsen</p>
-	<a href="">voeg een nieuwe stageplek toe</a>
+	<a href="<?php base_url()?>internships/create">voeg een nieuwe stageplek toe</a>
 
 	<div class="dataTables_wrapper form-inline dt-bootstrap">
 		<div class="row">
@@ -20,9 +20,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr role="row">
-
+					<?php foreach ($internships as $r): ?>
+						<tr role="row" class="odd">
+							<td><?php echo $r->education  ?></td>
+							<td><?php echo $r->date_start  ?></td>
+							<td><?php echo $r->date_end ?></td>
+							<td><?php echo $r->year ?></td>
+							<td><?php echo $r->location ?></td>
 						</tr>
+					<?php endforeach; ?>
 					</tbody>
 				</table>
 			</div>
