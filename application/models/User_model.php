@@ -2,14 +2,12 @@
 
 class User_model extends CI_Model {
 
-    public function __construct()
-	{
+    public function __construct(){
         parent::__construct();
 		$this->load->database();
 	}
 
-    public function update()
-    {
+    public function update(){
         $id = $_SESSION['user_id'];
         $data = array(
             'fname' => $this->input->post('fname'),
@@ -21,8 +19,8 @@ class User_model extends CI_Model {
 
     }
 
-	public function set_user()
-	{
+
+    public function set_user(){
 	    $data = array(
 			'fname' => $this->input->post('fname'),
 			'lname' => $this->input->post('lname'),
@@ -41,8 +39,8 @@ class User_model extends CI_Model {
         $this->db->from('user');
         $this->db->where('email', $email);
         return $this->db->get()->row('id');
-
     }
+
 
     public function resolve_user_login($email, $password) {
 

@@ -7,6 +7,7 @@ class User extends CI_Controller
 
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->model('Skill_model');
         if (!isset($_SESSION['email'])) {
             if(uri_string() == 'logout' || uri_string() == 'profile'){
                 redirect(base_url());
@@ -156,6 +157,15 @@ class User extends CI_Controller
             redirect('');
         }
     }
+
+    public function deleteskill()
+    {
+        $id = $this->input->get('id');
+        if ($this->Skill_model->deleteskill($id)){
+            redirect('admin');
+        }
+    }
+
     public function admin() {
 
         if (!isset($_SESSION['admin'])) {
@@ -210,10 +220,18 @@ class User extends CI_Controller
             }
         }
         else{
-            $this->load->view('templates/header');
-            $this->load->view('admin/index');
-            $this->load->view('templates/footer');
+            $this->form_validation->set_rules('skill', 'skill', 'required|is_unique[skills.name]');
+            if ($this->form_validation->run() === FALSE) {
 
+                $data['get_skills'] = $this->Skill_model->get_skills();
+                $this->load->view('templates/header');
+                $this->load->view('admin/index', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $this->Skill_model->create_skill();
+                redirect('admin');
+
+            }
         }
     }
 }
